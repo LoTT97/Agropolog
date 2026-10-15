@@ -108,6 +108,7 @@ a { color: var(--primary); }
 }
 .tab:hover { border-color: var(--primary); }
 .tab.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.tab-icon { font-size: 1.1em; line-height: 1; }
 
 .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem 3rem; }
 .menu-item { padding: 1rem 0; border-bottom: 1px dashed var(--border); }
