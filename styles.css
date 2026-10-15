@@ -125,7 +125,7 @@ a { color: var(--primary); }
 .menu-note { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 2.5rem; }
 
 /* Hours */
-.hours { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.hours { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
 .hours-table { width: 100%; border-collapse: collapse; margin-top: .5rem; }
 .hours-table td { padding: .8rem 0; border-bottom: 1px solid var(--border); }
 .hours-table td:last-child { text-align: right; font-weight: 500; }
