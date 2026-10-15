@@ -1,0 +1,33 @@
+name: Deploy to dolosia.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
+      # The server only lets this key run deploy/agropolog-deploy.sh, which reads the site from stdin.
+      - name: Upload site
+        run: |
+          tar -czf - --exclude=.git --exclude=.github --exclude=deploy \
+            --exclude=README.md --exclude=.gitignore . \
+            | ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes ubuntu@109.205.178.198
+
+      - name: Check the site responds
+        run: curl -fsS -o /dev/null -w "HTTP %{http_code}\n" http://dolosia.com/
