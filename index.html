@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agropolog — Farm to Table Restaurant</title>
+  <meta name="description" content="Agropolog is a farm-to-table restaurant serving seasonal, locally sourced dishes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#top" class="logo">Agropolog</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#hours">Hours</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn btn-small">Reserve</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Farm to table · Since 2012</p>
+        <h1>Fresh from the field,<br>straight to your plate.</h1>
+        <p class="lead">Seasonal dishes cooked over open fire with produce from our own farm and the growers around us.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn">View the menu</a>
+          <a href="#contact" class="btn btn-ghost">Book a table</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about">
+        <div>
+          <p class="eyebrow">Our story</p>
+          <h2>A kitchen rooted in the land</h2>
+          <p>Agropolog started as a small family farm on the edge of the valley. Today we grow more than forty kinds of vegetables, keep our own bees, and bake bread every morning in a wood-fired oven.</p>
+          <p>Our menu changes with the seasons — what's ripe this week decides what's on your plate tonight.</p>
+        </div>
+        <ul class="stats">
+          <li><strong>40+</strong><span>crops grown on site</span></li>
+          <li><strong>12 km</strong><span>average distance from farm to kitchen</span></li>
+          <li><strong>4.8 ★</strong><span>from 1,200+ guest reviews</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="menu" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow center">Menu</p>
+        <h2 class="center">What we're cooking</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-category="starters" role="tab" aria-selected="true">Starters</button>
+          <button class="tab" data-category="mains" role="tab" aria-selected="false">Mains</button>
+          <button class="tab" data-category="desserts" role="tab" aria-selected="false">Desserts</button>
+          <button class="tab" data-category="drinks" role="tab" aria-selected="false">Drinks</button>
+        </div>
+        <div class="menu-grid" id="menu-grid"></div>
+        <p class="menu-note">V = vegetarian · VG = vegan · GF = gluten free. Please tell us about any allergies.</p>
+      </div>
+    </section>
+
+    <section id="hours" class="section">
+      <div class="container hours">
+        <div>
+          <p class="eyebrow">Visit us</p>
+          <h2>Opening hours</h2>
+          <table class="hours-table">
+            <tr><td>Monday</td><td>Closed</td></tr>
+            <tr><td>Tuesday – Thursday</td><td>12:00 – 22:00</td></tr>
+            <tr><td>Friday – Saturday</td><td>12:00 – 23:30</td></tr>
+            <tr><td>Sunday</td><td>11:00 – 21:00</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Weekend brunch</h3>
+          <p>Every Saturday and Sunday from 10:00 to 14:00 — farm eggs, fresh pastries and homemade jams.</p>
+          <h3>Private events</h3>
+          <p>Our barn seats up to 60 guests for weddings, birthdays and company dinners.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Reserve a table</h2>
+          <ul class="contact-list">
+            <li><span>Address</span>Rruga e Fshatit 24, Valley Road, 10000</li>
+            <li><span>Phone</span><a href="tel:+38344123456">+383 44 123 456</a></li>
+            <li><span>Email</span><a href="mailto:hello@agropolog.example">hello@agropolog.example</a></li>
+          </ul>
+        </div>
+        <form class="card form" id="reservation-form">
+          <label>Name<input type="text" name="name" required></label>
+          <div class="form-row">
+            <label>Date<input type="date" name="date" required></label>
+            <label>Guests<input type="number" name="guests" min="1" max="20" value="2" required></label>
+          </div>
+          <label>Time
+            <select name="time">
+              <option>12:00</option><option>13:30</option><option>18:00</option>
+              <option selected>19:30</option><option>21:00</option>
+            </select>
+          </label>
+          <button type="submit" class="btn">Request reservation</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Agropolog. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
